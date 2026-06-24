@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 
 const NotFound = () => {
@@ -9,13 +9,20 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-gray-600">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 underline hover:text-blue-700">
-          Return to Home
-        </a>
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background px-4">
+      <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/20 via-accent-purple/10 to-accent-emerald/20" />
+
+      <div className="glass-effect relative z-10 max-w-md rounded-2xl p-10 text-center space-y-6">
+        <h1 className="font-bagel text-7xl md:text-8xl text-shadow-strong">404</h1>
+        <p className="text-xl text-muted-foreground">
+          Página no encontrada
+        </p>
+        <Link
+          to="/"
+          className="inline-block rounded-lg px-6 py-3 text-foreground glass-effect gentle-animation"
+        >
+          Volver al inicio
+        </Link>
       </div>
     </div>
   );
